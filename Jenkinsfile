@@ -15,7 +15,7 @@ pipeline {
     }
     stage('Publish') {
       steps {
-        withCredentials([[$class: 'UsernamePasswordMultipleBinding'
+        withCredentials([[$class: 'UsernamePasswordMultiBinding'
           credentialsId: 'do22dockerhub',
           usernameVariable: 'USERNAME',
           passwordVariable: 'PASSWORD']]) {
