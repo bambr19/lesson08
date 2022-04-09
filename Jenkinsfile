@@ -7,7 +7,7 @@ pipeline {
         sh 'docker build -t bambr19/waitalpine:${BUILD_NUMBER} .'
       }
     }
-    stage('Tag') {
+    stage('Test') {
       steps {
         sh 'docker images'
       }
@@ -20,9 +20,12 @@ pipeline {
           passwordVariable: 'PASSWORD') ]) {
           sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
           sh 'docker push bambr19/waitalpine:${BUILD_NUMBER} '
-          sh 'docker images'
         }
       }
+    }
+    stage('Clean up') {
+      sh 'docker rmi bambr19/waitalpine:${BUILD_NUMBER}'
+      sh 'docker images'
     }
   }
 }
