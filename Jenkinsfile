@@ -15,6 +15,7 @@ pipeline {
     stage('Publish') {
       steps {
         sh 'docker push bambr19/waitalpine:${BUILD_NUMBER}'
+        sh 'docker images'
       }
     }
   }
