@@ -24,8 +24,10 @@ pipeline {
       }
     }
     stage('Clean up') {
-      sh 'docker rmi bambr19/waitalpine:${BUILD_NUMBER}'
-      sh 'docker images'
+      steps {
+        sh 'docker rmi bambr19/waitalpine:${BUILD_NUMBER}'
+        sh 'docker images'
+      }
     }
   }
 }
