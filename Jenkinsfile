@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t waitalpine:${BUILD_NUMBER} .'
+        sh 'docker build -t bambr19/waitalpine:${BUILD_NUMBER} .'
       }
     }
     stage('Tag') {
