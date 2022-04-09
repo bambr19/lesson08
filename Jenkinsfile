@@ -4,7 +4,7 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t waitalpine:latest'
+        sh 'docker build -t waitalpine:latest .'
       }
     }
     stage('Tag') {
