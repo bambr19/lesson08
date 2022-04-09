@@ -16,7 +16,7 @@ pipeline {
     stage('Publish') {
       steps {
         withCredentials([[$class: 'UsernamePasswordMultipleBinding'
-          credentialId: 'do22dockerhub',
+          credentialsId: 'do22dockerhub',
           usernameVariable: 'USERNAME',
           passwordVariable: 'PASSWORD']]) {
           sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
