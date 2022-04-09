@@ -15,10 +15,10 @@ pipeline {
     }
     stage('Publish') {
       steps {
-        withCredentials([[$class: 'UsernamePasswordMultiBinding'
+        withCredentials( [usernamePassword (
           credentialsId: 'do22dockerhub',
           usernameVariable: 'USERNAME',
-          passwordVariable: 'PASSWORD']]) {
+          passwordVariable: 'PASSWORD') ]) {
           sh 'echo $PASSWORD | docker login -u $USERNAME --password-stdin'
           sh 'docker push bambr19/waitalpine:${BUILD_NUMBER}- '
           sh 'docker images'
