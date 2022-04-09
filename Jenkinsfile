@@ -4,12 +4,12 @@ pipeline {
   stages {
     stage('Build') {
       steps {
-        sh 'docker build -t waitalpine:latest .'
+        sh 'docker build -t waitalpine:${BUILD_NUMBER} .'
       }
     }
     stage('Tag') {
       steps {
-        sh 'docker tag waitalpine:latest bambr19/waitalpine:${BUILD_NUMBER}'
+#        sh 'docker tag waitalpine:latest bambr19/waitalpine:${BUILD_NUMBER}'
         sh 'docker images'
       }
     }
