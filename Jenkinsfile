@@ -9,7 +9,6 @@ pipeline {
     }
     stage('Tag') {
       steps {
-#        sh 'docker tag waitalpine:latest bambr19/waitalpine:${BUILD_NUMBER}'
         sh 'docker images'
       }
     }
